@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kokusai Heritage Project ｜ みんなで育てる、クリエイティブ文化財</title>
+<meta name="description" content="徳島・東船場の登録有形文化財「旧高原ビル」(1932年・鈴木禎次設計) から始まる、都市の苗床。みんなで育てる、クリエイティブ文化財。運営：株式会社国際。">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kokusai Heritage Project">
+<meta property="og:title" content="みんなで育てる、クリエイティブ文化財｜Kokusai Heritage Project">
+<meta property="og:description" content="徳島・東船場の登録有形文化財「旧高原ビル」から始まる、都市の苗床。1階チャレンジスペース 出店者募集中。">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="https://example.com/ogp.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="みんなで育てる、クリエイティブ文化財">
+<meta name="twitter:description" content="徳島・東船場の登録有形文化財「旧高原ビル」から始まる、都市の苗床。">
+<meta name="twitter:image" content="https://example.com/ogp.jpg">
+
+<!-- Favicon：建物のアーチ窓をモチーフにした線の印 -->
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="7" fill="%2316263F"/><path d="M13 28 V20 a7 7 0 0 1 14 0 v8" fill="none" stroke="%23E9ECEF" stroke-width="2"/><line x1="20" y1="14" x2="20" y2="28" stroke="%23E9ECEF" stroke-width="2"/></svg>'>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16263F;        /* 基調：ネイビー */
+    --navy-2:#1F3354;
+    --navy-3:#0F1C30;
+    --steel:#6E86A8;       /* 唯一の差し色（くすんだ青） */
+    --paper:#F2F3F1;       /* クールなオフホワイト */
+    --paper-2:#FAFBFA;
+    --ink:#1A2737;
+    --line:#E1E3E1;
+    --line-d:rgba(255,255,255,.16);
+    --muted:#6C7480;
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--paper-2);line-height:1.95;font-size:16px;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:1.4rem}
+  .sec-title{font-weight:500;font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.6;letter-spacing:.02em}
+  .btn{display:inline-flex;align-items:center;gap:.7em;background:var(--navy);color:#fff;padding:1.05em 2.4em;font-size:.82rem;font-weight:500;letter-spacing:.1em;border:1px solid var(--navy);transition:background .3s,color .3s,border-color .3s}
+  .btn:hover{background:transparent;color:var(--navy)}
+  .btn--out{background:transparent;color:var(--navy);border-color:var(--navy)}
+  .btn--out:hover{background:var(--navy);color:#fff}
+  .btn--light{background:#fff;color:var(--navy);border-color:#fff}
+  .btn--light:hover{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+  .btn--ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .btn--ghost-light:hover{background:#fff;color:var(--navy)}
+
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+  header.solid{background:rgba(250,251,250,.92);backdrop-filter:blur(12px);border-bottom-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .brand{display:flex;align-items:center;gap:.7em;font-weight:500;letter-spacing:.04em;color:#fff;transition:color .3s}
+  header.solid .brand{color:var(--navy)}
+  .brand small{display:block;font-size:.56rem;letter-spacing:.18em;opacity:.7;font-weight:400}
+  .brand .archmark path,.brand .archmark line{stroke:currentColor}
+  .menu{display:flex;align-items:center;gap:2rem;font-size:.82rem;letter-spacing:.06em;color:#fff;transition:color .3s}
+  header.solid .menu{color:var(--navy)}
+  .menu>a{position:relative;padding:.2em 0}
+  .menu>a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:currentColor;transition:width .3s}
+  .menu>a:hover::after{width:100%}
+  .menu .btn{padding:.7em 1.5em;font-size:.74rem}
+  header.solid .menu .btn{color:#fff}
+  .burger{display:none;flex-direction:column;gap:6px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:1.5px;background:#fff;transition:.3s}
+  header.solid .burger span{background:var(--navy)}
+
+  /* hero */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;z-index:0}
+  .hero .bg img{width:100%;height:100%;object-fit:cover;filter:brightness(1.02)}
+  .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,38,.45) 0%,rgba(15,23,38,.15) 38%,rgba(15,23,38,.78) 100%)}
+  .hero .wrap{position:relative;z-index:1;padding-bottom:clamp(70px,10vw,130px);padding-top:120px}
+  .hero .eyebrow{color:rgba(255,255,255,.8)}
+  .hero h1{font-weight:500;font-size:clamp(2.1rem,6vw,4.2rem);line-height:1.4;letter-spacing:.04em;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+  .hero p.lead{margin:1.8rem 0 2.4rem;max-width:34em;color:rgba(255,255,255,.86);font-weight:300;font-size:1.04rem}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .hero .cap{position:absolute;right:24px;bottom:18px;z-index:1;color:rgba(255,255,255,.5);font-size:.62rem;letter-spacing:.08em}
+  .scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:1;color:rgba(255,255,255,.6);font-size:.6rem;letter-spacing:.3em;writing-mode:vertical-rl}
+
+  section{padding:clamp(80px,11vw,150px) 0}
+  .sec-head{max-width:680px;margin-bottom:64px}
+  .sec-head p{color:var(--muted);margin-top:1.4rem;font-weight:300}
+
+  /* photo */
+  .ph{position:relative;overflow:hidden;background:var(--paper)}
+  .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(1.04) saturate(1.02)}
+  .ph .cap{position:absolute;left:14px;bottom:11px;color:rgba(255,255,255,.85);font-size:.62rem;letter-spacing:.06em;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+
+  /* concept */
+  .concept{background:var(--navy);color:var(--paper)}
+  .concept .eyebrow{color:var(--steel)}
+  .concept .q{font-weight:300;font-size:clamp(1.05rem,2.3vw,1.35rem);color:rgba(242,243,241,.72);margin-bottom:2rem;line-height:2;letter-spacing:.03em}
+  .concept .statement{font-weight:500;font-size:clamp(1.6rem,4vw,2.9rem);line-height:1.75;letter-spacing:.05em}
+  .concept .statement b{font-weight:500;color:#fff;border-bottom:1px solid var(--steel);padding-bottom:.08em}
+  .concept .body{margin-top:2.6rem;color:rgba(242,243,241,.7);max-width:44em;font-weight:300}
+
+  /* building */
+  .facts{display:flex;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .fact{flex:1;min-width:160px;padding:30px 24px;border-right:1px solid var(--line)}
+  .fact:last-child{border-right:0}
+  .fact .n{font-weight:300;font-size:1.9rem;letter-spacing:.02em;color:var(--navy)}
+  .fact .k{font-size:.76rem;color:var(--muted);margin-top:.5rem;letter-spacing:.08em}
+  .building-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:64px}
+  .building-grid .ph{aspect-ratio:4/3}
+  .timeline{display:grid;gap:30px}
+  .tl{display:grid;grid-template-columns:74px 1fr;gap:24px;align-items:baseline;padding-bottom:28px;border-bottom:1px solid var(--line)}
+  .tl:last-child{border-bottom:0;padding-bottom:0}
+  .tl .y{font-weight:400;color:var(--steel);font-size:1.1rem;letter-spacing:.04em}
+  .tl .t{font-size:.92rem;color:var(--muted);font-weight:300}
+
+  /* how */
+  .how{background:var(--paper)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+  .step{padding:44px 36px 44px 0;border-right:1px solid var(--line)}
+  .step:last-child{border-right:0;padding-right:0}
+  .step:first-child{padding-left:0}
+  .step:not(:first-child){padding-left:36px}
+  .step .num{font-weight:300;font-size:1.1rem;color:var(--steel);letter-spacing:.1em}
+  .step h3{font-weight:500;font-size:1.25rem;margin:1.4rem 0 .9rem;letter-spacing:.04em}
+  .step p{font-size:.9rem;color:var(--muted);font-weight:300}
+  .rent{margin-top:64px;background:var(--navy);color:var(--paper);padding:56px clamp(32px,5vw,64px);display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center}
+  .rent h3{font-weight:500;font-size:1.3rem;margin-bottom:.9rem;letter-spacing:.04em}
+  .rent p{font-size:.88rem;color:rgba(242,243,241,.72);font-weight:300}
+  .rent .big{font-weight:300;font-size:4.6rem;text-align:center;line-height:1;letter-spacing:.02em}
+  .rent .big small{display:block;font-size:.66rem;font-weight:400;letter-spacing:.22em;margin-top:1rem;color:var(--steel)}
+
+  /* floors */
+  .floors{border-top:1px solid var(--line)}
+  .floor{display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:baseline;padding:36px 0;border-bottom:1px solid var(--line);transition:padding-left .3s}
+  .floor:hover{padding-left:14px}
+  .floor .fl{font-weight:300;font-size:2rem;color:var(--navy);letter-spacing:.04em}
+  .floor h3{font-weight:500;font-size:1.15rem;margin-bottom:.4rem;letter-spacing:.03em}
+  .floor p{font-size:.9rem;color:var(--muted);font-weight:300}
+
+  /* recruit */
+  .recruit{background:var(--navy-3);color:var(--paper)}
+  .recruit .eyebrow{color:var(--steel)}
+  .recruit .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  .recruit p.intro{font-weight:300;color:rgba(242,243,241,.82)}
+  .recruit ul{list-style:none;display:grid;gap:18px;margin-top:24px}
+  .recruit li{padding-left:24px;position:relative;color:rgba(242,243,241,.88);font-size:.94rem;font-weight:300}
+  .recruit li::before{content:"";position:absolute;left:0;top:.85em;width:10px;height:1px;background:var(--steel)}
+  .recruit .card{border:1px solid var(--line-d);padding:40px}
+  .recruit .card h3{font-weight:500;font-size:1.1rem;margin-bottom:1.4rem;letter-spacing:.06em}
+  .recruit dl{display:grid;grid-template-columns:auto 1fr;gap:14px 22px;font-size:.9rem;font-weight:300}
+  .recruit dt{color:var(--steel);white-space:nowrap}
+  .recruit dd{color:rgba(242,243,241,.92)}
+
+  /* news */
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .card-news .ph{aspect-ratio:3/2;margin-bottom:20px}
+  .card-news time{font-weight:400;color:var(--steel);font-size:.78rem;letter-spacing:.1em}
+  .card-news .cat{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;margin-left:1em;color:var(--muted)}
+  .card-news h3{font-size:1rem;margin-top:.7rem;font-weight:400;line-height:1.7}
+
+  /* contact */
+  .contact{background:var(--navy);color:var(--paper)}
+  .contact .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+  .contact .eyebrow{color:var(--steel)}
+  .contact h2{font-weight:500;font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.6;margin-bottom:1.4rem;letter-spacing:.03em}
+  .contact .intro{color:rgba(242,243,241,.78);font-size:.94rem;font-weight:300}
+  .contact .alt{margin-top:2rem;font-size:.85rem;color:rgba(242,243,241,.66);font-weight:300}
+  .contact .alt a{color:var(--steel);border-bottom:1px solid var(--steel)}
+  form{display:grid;gap:22px}
+  .field{display:grid;gap:9px}
+  .field label{font-size:.74rem;letter-spacing:.12em;color:rgba(242,243,241,.8)}
+  .field label .req{color:var(--steel);margin-left:.5em}
+  .field input,.field select,.field textarea{font-family:inherit;font-size:.95rem;color:var(--paper);background:transparent;border:0;border-bottom:1px solid var(--line-d);padding:.7em 0;width:100%}
+  .field textarea{min-height:120px;resize:vertical}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(242,243,241,.4)}
+  .field select option{color:var(--ink)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--steel)}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  form .btn{justify-self:start;margin-top:10px;cursor:pointer}
+  .note{font-size:.72rem;color:rgba(242,243,241,.5);font-weight:300}
+
+  /* footer */
+  footer{background:var(--navy-3);color:rgba(242,243,241,.7);padding:80px 0 32px;font-size:.85rem;font-weight:300}
+  .f-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid var(--line-d)}
+  .f-brand{color:#fff;font-size:1.1rem;margin-bottom:1rem;letter-spacing:.04em}
+  .f-col h4{color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.2rem}
+  .f-col a{display:block;padding:.35em 0;color:rgba(242,243,241,.68)}
+  .f-col a:hover{color:#fff}
+  .f-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:.74rem;color:rgba(242,243,241,.45);letter-spacing:.04em}
+  .f-bottom .links a{margin-left:20px}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:880px){
+    .wrap{padding:0 22px}
+    .menu{position:fixed;inset:80px 0 auto 0;background:var(--navy);color:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:10px 28px 26px;transform:translateY(-130%);transition:transform .4s}
+    .menu.open{transform:none}
+    header.solid .menu{color:#fff}
+    .menu>a{width:100%;padding:1em 0;border-bottom:1px solid var(--line-d)}
+    .menu .btn{margin-top:16px;width:100%;justify-content:center}
+    .burger{display:flex}
+    .building-grid,.recruit .grid,.rent,.steps,.news-grid,.contact .grid,.form-row,.f-top{grid-template-columns:1fr}
+    .building-grid{gap:40px}
+    .step{border-right:0;border-bottom:1px solid var(--line);padding:32px 0!important}
+    .step:last-child{border-bottom:0}
+    .rent{padding:44px 32px}
+    .rent .big{text-align:left;font-size:3.6rem}
+    .fact{min-width:50%;border-bottom:1px solid var(--line)}
+    .recruit .grid,.contact .grid{gap:44px}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 18px}
+    section{padding:64px 0}
+    .hero{min-height:92vh}
+    .hero .wrap{padding-top:104px;padding-bottom:60px}
+    .hero h1{font-size:1.95rem;letter-spacing:.02em;line-height:1.5}
+    .hero p.lead{font-size:.95rem;margin:1.4rem 0 2rem}
+    .hero-cta{gap:10px;width:100%}
+    .hero-cta .btn{flex:1;justify-content:center;padding:1em .8em;font-size:.78rem}
+    .nav{height:66px}
+    .menu{inset:66px 0 auto 0}
+    .brand small{display:none}
+    .sec-head{margin-bottom:38px}
+    .sec-title{font-size:1.45rem;line-height:1.65}
+    .concept .statement{letter-spacing:.02em}
+    .fact{min-width:100%;border-right:0;padding:20px 0}
+    .building-grid{gap:30px;margin-top:42px}
+    .tl{grid-template-columns:58px 1fr;gap:16px}
+    .floor{grid-template-columns:58px 1fr;gap:18px;padding:26px 0}
+    .floor .fl{font-size:1.55rem}
+    .rent{padding:34px 22px}
+    .rent .big{font-size:3rem}
+    .news-grid{gap:30px}
+    .recruit .grid,.contact .grid{gap:40px}
+    .recruit .card{padding:28px}
+    .f-bottom{flex-direction:column;align-items:flex-start;gap:14px}
+    .f-bottom .links a{margin-left:0;margin-right:18px}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <svg class="archmark" width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M11 30 V19 a9 9 0 0 1 18 0 v11" stroke-width="1.6"/>
+        <line x1="20" y1="11" x2="20" y2="30" stroke-width="1.6"/>
+      </svg>
+      <span>Kokusai Heritage Project<small>TAKAHARA BLDG. 1932 — TOKUSHIMA</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#concept">Concept</a>
+      <a href="#building">Building</a>
+      <a href="#how">Challenge</a>
+      <a href="#floors">Floors</a>
+      <a href="#news">News</a>
+      <a href="#contact" class="btn">出店エントリー</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg">
+      <!-- 街並み写真（仮・差し替え用）。実写は許諾済み画像に差し替えてください。 -->
+      <img src="https://picsum.photos/seed/kh-city11/1900/1200" alt="街並み（仮イメージ）">
+    </div>
+    <div class="wrap">
+      <span class="eyebrow">A heritage we grow together</span>
+      <h1>みんなで育てる、<br>クリエイティブ文化財。</h1>
+      <p class="lead">徳島・東船場の登録有形文化財「旧高原ビル」から始まる、都市の苗床。過去を土壌に、未来が芽吹く場所。</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn--light">出店エントリー</a>
+        <a href="#concept" class="btn btn--ghost-light">プロジェクトを知る</a>
+      </div>
+    </div>
+    <span class="cap">［ 仮：街並み写真 — 差し替え用 ］</span>
+    <span class="scroll-hint">SCROLL</span>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="concept" id="concept">
+    <div class="wrap reveal">
+      <span class="eyebrow">Concept</span>
+      <p class="q">都市における“豊かな場所”とは何か。<br>そして街の未来は——文化財からこそ、つくられるのではないか。</p>
+      <p class="statement">過去を土壌に、未来が芽吹く。<br><b>文化財が、次の文化財を生む。</b></p>
+      <p class="body">旧高原ビルは、ただ保存され守られるだけの文化財ではありません。時間を重ねた器の上で、若い挑戦者が種をまき、街の人がそれを育て、やがて「徳島の次の名物」が芽吹いていく。関わる人の数だけ、新しい何かが生まれ続ける。だからこの場所は、完成しません。みんなでつくる、クリエイティブ文化財です。</p>
+    </div>
+  </section>
+
+  <!-- BUILDING -->
+  <section id="building">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">The Building</span>
+        <h2 class="sec-title">旧高原ビルとは</h2>
+        <p>徳島市東船場町に佇む、昭和7年（1932年）竣工の登録有形文化財。「名古屋をつくった建築家」鈴木禎次が手がけた、洋風モダンの小さな器。徳島大空襲を生き延びた、数少ない建物のひとつでもあります。</p>
+      </div>
+      <div class="facts reveal">
+        <div class="fact"><div class="n">1932</div><div class="k">昭和7年 竣工</div></div>
+        <div class="fact"><div class="n">1997</div><div class="k">国 登録有形文化財</div></div>
+        <div class="fact"><div class="n">194㎡</div><div class="k">RC造・3階建</div></div>
+        <div class="fact"><div class="n">鈴木禎次</div><div class="k">設計</div></div>
+      </div>
+      <div class="building-grid">
+        <div class="ph reveal"><img src="https://picsum.photos/seed/kh-arch9/900/680" alt="街並みの仮イメージ"><span class="cap">［ 仮：街並み写真 — 差し替え用 ］</span></div>
+        <div class="timeline reveal">
+          <div class="tl"><div class="y">1932</div><div class="t">鈴木禎次設計の、ロマネスク風・スクラッチタイルの洋風建築として竣工。いち早く“世界の新しさ”を街に持ち込んだ器。</div></div>
+          <div class="tl"><div class="y">1945</div><div class="t">徳島大空襲。市街の多くが焼けるなか、奇跡的に焼け残る。窓ガラスには今も大火の痕が残る。</div></div>
+          <div class="tl"><div class="y">1997</div><div class="t">国の登録有形文化財に登録。「昭和初期の都市部における洋風意匠の小規模ビルの好例」と評価される。</div></div>
+          <div class="tl"><div class="y">2026</div><div class="t">建設会社・株式会社国際のもと、Kokusai Heritage Project 始動。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">The Challenge</span>
+        <h2 class="sec-title">種をまき、育て、収穫する。<br>1階・チャレンジスペースの仕掛け。</h2>
+        <p>1階は、月替わりのチーム戦。挑戦したい人が入れ替わりで出店し、街がそれを育て、一年の終わりに実りを称え合う。“昔の器に、世界の今を”掛け合わせる、新旧融合の実験場です。</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="num">01</div><h3>種をまく</h3><p>審査を通った挑戦者が、月替わりのチームで出店。何を売るかは自由。軸は「旧高原ビルや街の物語との相乗効果」。</p></div>
+        <div class="step reveal"><div class="num">02</div><h3>育てる</h3><p>家賃は売上歩合のみ。低リスクで挑戦できる。出店者どうしの定例会で、互いに送客し合い、場全体を育てる。</p></div>
+        <div class="step reveal"><div class="num">03</div><h3>収穫する</h3><p>一年の売上を競い、年末にアワード。受賞チームには賞金を還元。みんなで旧高原ビルの価値を上げる仕掛け。</p></div>
+      </div>
+      <div class="rent reveal">
+        <div>
+          <h3>挑戦しやすい、売上歩合の家賃。</h3>
+          <p>固定の最低保証はなし。売上に応じた歩合のみだから、まずは小さく試せます。チームの売上は年間ランキングに反映され、年末アワード（1位・2位・3位）の賞金原資になります。※歩合率・運用条件の詳細は募集要項にて。</p>
+        </div>
+        <div class="big">7%<small>SALES-BASED RENT</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOORS -->
+  <section id="floors">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Floors</span>
+        <h2 class="sec-title">一棟まるごと、都市の苗床。</h2>
+      </div>
+      <div class="floors reveal">
+        <div class="floor"><div class="fl">1F</div><div><h3>チャレンジスペース — 種をまく場所</h3><p>月替わりのチーム戦。挑戦者が入れ替わり、新旧融合のプロダクトが生まれる、街にひらかれた一階。</p></div></div>
+        <div class="floor"><div class="fl">2F</div><div><h3>イベントスペース — 出会いの場所</h3><p>展示・催しで、人と人、人とまちが交わるハレの場。</p></div></div>
+        <div class="floor"><div class="fl">3F</div><div><h3>コワーキング — 育てる場所</h3><p>関わる人が集い、次の企画が生まれる運営とコミュニティの拠点。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECRUIT -->
+  <section class="recruit" id="recruit">
+    <div class="wrap">
+      <div class="grid">
+        <div class="reveal">
+          <span class="eyebrow">Join us</span>
+          <h2 class="sec-title" style="color:#fff;margin-bottom:28px">いっしょに、<br>種をまく人。</h2>
+          <p class="intro">業種は問いません。カフェ・物販・古道具・本・ギャラリー・実験的な店——あなたの「やってみたい」を、文化財の一階で試せます。求めるのは、熱量と、この場と響き合うセンス。</p>
+          <ul>
+            <li>若くて、熱量とセンスがある（経験よりも「やってみたい」を重視）</li>
+            <li>自分の“好き”やコミュニティを、この場に連れてこられる</li>
+            <li>旧高原ビルや街の物語と響き合い、相乗効果を生める</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3>募集概要（ドラフト）</h3>
+          <dl>
+            <dt>場所</dt><dd>旧高原ビル 1階 チャレンジ区画</dd>
+            <dt>形態</dt><dd>月替わりのチーム戦（入れ替え制）</dd>
+            <dt>家賃</dt><dd>売上歩合制（最低保証なし）</dd>
+            <dt>特典</dt><dd>年末アワードで賞金還元</dd>
+            <dt>選考</dt><dd>エントリー → 面談 → 審査</dd>
+          </dl>
+          <a href="#contact" class="btn btn--light" style="margin-top:28px">エントリーする</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">News</span>
+        <h2 class="sec-title">新着情報</h2>
+      </div>
+      <div class="news-grid">
+        <article class="card-news reveal"><div class="ph"><img src="https://picsum.photos/seed/kh-na1/640/420" alt="仮イメージ"></div><time>2026.08</time><span class="cat">Event</span><h3>お盆にあわせ、プレオープン企画を開催予定。</h3></article>
+        <article class="card-news reveal"><div class="ph"><img src="https://picsum.photos/seed/kh-na2/640/420" alt="仮イメージ"></div><time>2026.07</time><span class="cat">Recruit</span><h3>第1期チャレンジャー（出店チーム）募集を開始します。</h3></article>
+        <article class="card-news reveal"><div class="ph"><img src="https://picsum.photos/seed/kh-na3/640/420" alt="仮イメージ"></div><time>2026.06</time><span class="cat">Project</span><h3>Kokusai Heritage Project、始動。</h3></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="grid">
+        <div class="reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>過去から、未来をつくる。<br>あなたの一歩から。</h2>
+          <p class="intro">出店のご相談、取材、パートナーシップ、見学のご希望など、お気軽にお問い合わせください。担当より折り返しご連絡します。</p>
+          <p class="alt">お急ぎの方は <a href="mailto:info@re-assetdao.com">info@re-assetdao.com</a> まで。</p>
+        </div>
+        <!-- ↓ action を Formspree 等の送信先URLに差し替えてください -->
+        <form class="reveal" action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="form-row">
+            <div class="field"><label for="name">お名前 <span class="req">必須</span></label><input type="text" id="name" name="name" required></div>
+            <div class="field"><label for="email">メールアドレス <span class="req">必須</span></label><input type="email" id="email" name="email" required></div>
+          </div>
+          <div class="field"><label for="type">お問い合わせ種別</label>
+            <select id="type" name="type">
+              <option>出店エントリー（チャレンジャー）</option>
+              <option>取材・メディア</option>
+              <option>協業・パートナーシップ</option>
+              <option>見学希望</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="field"><label for="message">メッセージ <span class="req">必須</span></label><textarea id="message" name="message" placeholder="やってみたいこと、連れてこられる人、ご相談内容など" required></textarea></div>
+          <button type="submit" class="btn btn--light">送信する</button>
+          <p class="note">※送信をもってプライバシーポリシーに同意したものとみなします。</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <div class="f-brand">Kokusai Heritage Project</div>
+        <p>みんなで育てる、クリエイティブ文化財。<br>徳島・東船場の登録有形文化財「旧高原ビル」から始まる、都市の苗床。</p>
+      </div>
+      <div class="f-col">
+        <h4>Menu</h4>
+        <a href="#concept">Concept</a>
+        <a href="#building">Building</a>
+        <a href="#how">Challenge</a>
+        <a href="#contact">出店エントリー</a>
+        <a href="#news">News</a>
+      </div>
+      <div class="f-col">
+        <h4>Operated by</h4>
+        <p style="color:rgba(242,243,241,.68)">株式会社国際<br><span style="font-size:.78rem">［ 住所・電話番号を記載 ］</span></p>
+        <!-- ↓ 株式会社国際のプライバシーポリシーURLに差し替えてください -->
+        <a href="#" style="margin-top:.6rem">プライバシーポリシー</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 株式会社国際 ｜ Kokusai Heritage Project</span>
+      <span class="links"><a href="#">Instagram</a><a href="#">X</a><a href="#">note</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var hdr=document.getElementById('hdr');
+  var onScroll=function(){hdr.classList.toggle('solid',window.scrollY>40);};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){menu.classList.toggle('open');});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');});});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
