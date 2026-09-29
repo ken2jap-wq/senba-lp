@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://ken2jap-wq.github.io/senba-lp/img/hero/h1.jpg">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="%237A2E2A"/><path d="M13 29 V20 a7 7 0 0 1 14 0 v9" fill="none" stroke="%23F5F3ED" stroke-width="2.4"/><line x1="20" y1="13" x2="20" y2="29" stroke="%23F5F3ED" stroke-width="2.4"/></svg>'>
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
@@ -80,6 +80,9 @@
   .topbar .in{max-width:var(--maxw);margin:0 auto;padding:0 22px;height:62px;display:flex;align-items:center;justify-content:space-between}
   .brand{display:flex;align-items:center;gap:.6em;font-weight:700;letter-spacing:.04em;color:var(--navy);font-size:.95rem;line-height:1.2}
   .brand small{display:block;font-size:.6rem;letter-spacing:.14em;font-weight:500;color:var(--grey)}
+  .brand .logo{height:44px;width:auto;display:block}
+  .ig{display:inline-flex;align-items:center;gap:.5em;color:inherit}
+  .ig svg{display:block}
   .mark{width:30px;height:30px;border-radius:8px;background:var(--navy);display:grid;place-items:center;flex:none}
   .topbar .links{display:flex;gap:1.6rem;font-size:.82rem;font-weight:700}
   .topbar .btn{padding:.6em 1.3em;font-size:.78rem}
@@ -153,6 +156,13 @@
   .concept .pic{position:relative}
   .concept .pic img{border-radius:10px;width:100%;aspect-ratio:4/3;object-fit:cover}
   .concept .pic .cap{position:absolute;left:-10px;top:18px;background:var(--yellow);color:var(--navy);font-size:.72rem;font-weight:700;letter-spacing:.2em;padding:14px 8px;border-radius:3px;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+  .story{display:grid;grid-template-columns:minmax(180px,260px) 1fr;gap:clamp(24px,4vw,56px);align-items:center;margin-top:64px;background:var(--cream);border-radius:10px;padding:clamp(24px,3.4vw,44px)}
+  .story img{width:100%;height:auto}
+  .story .sub{font-size:.76rem;color:var(--red);font-weight:700;letter-spacing:.18em;margin-bottom:.5rem}
+  .story h3{font-family:"Shippori Mincho","Hiragino Mincho ProN",serif;font-size:1.35rem;font-weight:700;letter-spacing:.08em;margin-bottom:.8rem;color:var(--ink)}
+  .story p{font-size:.9rem;color:var(--grey);line-height:2}
+  .story p+p{margin-top:.7rem}
+  .story .pf{color:var(--navy);font-weight:700;border-left:3px solid var(--navy);padding-left:14px;margin-top:1.1rem}
   .three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:64px}
   .three .c{background:var(--cream);border-radius:10px;padding:26px 24px 28px;position:relative}
   .three .c .f{font-size:1.8rem;font-weight:600;letter-spacing:.05em;line-height:1;color:var(--red)}
@@ -183,6 +193,7 @@
   .floor .iso svg{width:100%;max-width:420px;height:auto}
   .floor .card{background:var(--paper);color:var(--ink);border-radius:10px;padding:clamp(24px,3vw,40px)}
   .floor .row{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid #E6E3DA;align-items:center}
+  .floor .row .mini{display:none}
   .floor .row:last-child{border-bottom:0;padding-bottom:0}
   .floor .row:first-child{padding-top:0}
   .floor .row img{width:110px;height:82px;object-fit:cover;border-radius:6px}
@@ -282,12 +293,18 @@
     .wrap{padding:0 22px}
     .topbar .links{display:none}.burger{display:flex}
     .navband .in{justify-content:flex-start}
-    .intro .grid,.concept .grid,.bgrid,.floor .grid,.join .grid,.booth,.contact .box,.access .ways,.f-top{grid-template-columns:1fr}
+    .intro .grid,.concept .grid,.bgrid,.floor .grid,.join .grid,.booth,.story,.contact .box,.access .ways,.f-top{grid-template-columns:1fr}
     .three,.cards,.rules,.news .grid{grid-template-columns:1fr}
     .facts{grid-template-columns:1fr 1fr}
     .rent{grid-template-columns:1fr}.rent .big{text-align:left}
     .strip{grid-template-columns:1fr 1.4fr 1fr;height:clamp(180px,34vw,320px)}
-    .floor .iso{display:flex;justify-content:center}
+    .floor .iso{display:none}
+    .floor .row{grid-template-columns:96px 1fr;grid-template-areas:"mini text" "mini photo";gap:10px 16px;align-items:start;position:relative}
+    .floor .row .mini{display:block;grid-area:mini;position:relative;align-self:stretch}
+    .floor .row .mini svg{width:96px;height:auto;display:block;overflow:visible;position:relative;z-index:1}
+    .floor .row:not(:first-child) .mini::before{content:"";position:absolute;left:58px;top:-46px;height:60px;border-left:2px dotted #B9A593}
+    .floor .row > div:not(.mini){grid-area:text}
+    .floor .row img{grid-area:photo;width:100%;height:clamp(110px,32vw,190px)}
     .intro .map{max-width:520px;margin:0 auto}
   }
   @media(max-width:600px){
@@ -314,7 +331,7 @@
     .strip{grid-template-columns:1fr 1fr;}
     .strip .p:nth-child(3){display:none}
     .facts{gap:10px}.fact{padding:14px}.fact .n{font-size:1.25rem}
-    .floor .row{grid-template-columns:84px 1fr;gap:14px}.floor .row img{width:84px;height:64px}
+    .floor .row{grid-template-columns:84px 1fr}.floor .row .mini svg{width:84px}.floor .row:not(:first-child) .mini::before{left:50px}
     .f-bottom{flex-direction:column}.f-bottom .links a{margin:0 16px 0 0}
   }
 </style>
@@ -336,7 +353,7 @@
 <!-- スクロール後ヘッダー -->
 <div class="topbar" id="topbar">
   <div class="in">
-    <a href="#top" class="brand"><span class="mark"><svg width="16" height="16" viewBox="0 0 40 40" fill="none"><path d="M11 30 V19 a9 9 0 0 1 18 0 v11" stroke="#fff" stroke-width="3"/><line x1="20" y1="11" x2="20" y2="30" stroke="#fff" stroke-width="3"/></svg></span><span>funaba<small>国際ビル ― 徳島・東船場</small></span></a>
+    <a href="#top" class="brand"><img class="logo" src="img/logo_senba.png" alt="senba"><span>senba<small>旧高原ビル</small></span></a>
     <nav class="links"><a href="#concept">コンセプト</a><a href="#building">建物</a><a href="#floor">フロア</a><a href="#how">1Fのしくみ</a><a href="#join">募集</a><a href="#access">アクセス</a></nav>
     <div style="display:flex;align-items:center;gap:8px"><a href="#contact" class="btn">出店エントリー</a><button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button></div>
   </div>
@@ -399,7 +416,7 @@
         <div class="map reveal" aria-label="新町川周辺の位置関係（概念図）">
           <!-- 手描き風の川の地図（概念図） -->
           <svg viewBox="0 0 560 440" xmlns="http://www.w3.org/2000/svg">
-  <!-- 新町川周辺 概念図 v3（2026/9/21・国際社長の指摘を反映）: funaba は新町川の「南岸」、新町橋のたもと（新町橋と両国橋の間）。阿波おどり会館も川の南側・眉山の麓。北が上。 -->
+  <!-- 新町川周辺 概念図 v3（2026/9/21・国際社長の指摘を反映）: senba は新町川の「南岸」、新町橋のたもと（新町橋と両国橋の間）。阿波おどり会館も川の南側・眉山の麓。北が上。 -->
   <defs>
     <filter id="rough2"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="4"/></filter>
     <style>
@@ -414,7 +431,7 @@
   <g filter="url(#rough2)" fill="none" stroke="#F3E6D8" stroke-linecap="round" stroke-linejoin="round">
     <!-- 助任川（徳島駅の北） -->
     <path d="M10 44 C120 30 200 58 300 46 C390 36 470 56 550 44" stroke-width="18" opacity=".5"/>
-    <!-- 新町川（北西→南東。funabaはその南岸） -->
+    <!-- 新町川（北西→南東。senbaはその南岸） -->
     <path d="M10 120 C110 140 200 165 262 190 C340 220 440 270 550 318" stroke-width="26" opacity=".95"/>
   </g>
   <!-- 眉山（南西） -->
@@ -435,7 +452,7 @@
   <!-- 徳島県庁（南東・川の南岸） -->
   <rect x="476" y="330" width="26" height="20" rx="2" fill="#F3E6D8" opacity=".9"/>
   <text x="466" y="368" class="jp" font-size="11.5" fill="#FFFFFF" opacity=".95">徳島県庁</text>
-  <!-- funaba：新町川の南岸、新町橋のたもと -->
+  <!-- senba：新町川の南岸、新町橋のたもと -->
   <circle cx="284" cy="231" r="13" fill="#F1C75B" opacity=".35"/>
   <circle cx="284" cy="231" r="8" fill="#F1C75B"/>
   <circle cx="284" cy="231" r="3" fill="#7A2E2A"/>
@@ -478,10 +495,16 @@
           <span class="cap vert">国の登録有形文化財</span>
         </div>
       </div>
-      <div class="three">
-        <div class="c reveal"><div class="f en">1F</div><h3>1ヶ月だけ店主になる</h3><p>POPUP STORE東船場。月替わりの出店枠。文化財の1階で、自分の店を試す。家賃は売上の10%だけ。</p></div>
-        <div class="c reveal"><div class="f en">2F</div><h3>展示や催しをひらく</h3><p>新町川文化ギャラリー。個展・イベント・小さな催し。人と町が出会うハレの場。</p></div>
-        <div class="c reveal"><div class="f en">3F</div><h3>町の未来を仕込む</h3><p>新町川ワークスペース。次の企画と仲間が生まれる拠点。文化財に登記できるバーチャルオフィスも。</p></div>
+      <div class="story reveal">
+        <img src="img/logo_senba.png" alt="senbaのロゴ。小舟で川を渡す狸と「船場」の文字" loading="lazy">
+        <div>
+          <div class="sub">STORY ― ロゴのはなし</div>
+          <h3>船場の渡し守の狸</h3>
+          <p>新町川のほとりにある古い建物に、いつのころからか住みついている。昔、川を行き交う船の音を聞きながら、岸辺で人や荷物を迎えていた狸だ。</p>
+          <p>船場ができてからは、川を渡す代わりに、この建物を訪れる人の「はじめの一歩」をそっと手伝うようになった。初めて店を開く人には、戸口まで案内する。作品を見せたい人には、二階の灯りを教える。何かを始めたい人には、三階の机を空けておく。</p>
+          <p>狸は店主でも先生でもない。ただ、ここで出会った人たちが次の誰かを迎えられるように、岸と岸のあいだに小さな渡しをつくる。</p>
+          <p class="pf">人と人、やってみたいこととその一歩を、そっとつなぐ狸。今日も戸口で、次に来る人を待っている。</p>
+        </div>
       </div>
     </div>
   </section>
@@ -533,30 +556,13 @@
         <div class="label reveal"><span class="e en">FLOOR</span><span class="j">フロア案内</span></div>
         <div class="grid">
           <div class="iso reveal">
-            <!-- 3層の簡易アイソメ図 -->
-            <svg viewBox="0 0 420 400" xmlns="http://www.w3.org/2000/svg" aria-label="フロア構成">
-              <g font-family="Cormorant Garamond, serif" font-size="20" font-weight="600" letter-spacing="2">
-                <g transform="translate(0,0)">
-                  <path d="M120 40 L300 40 L360 90 L180 90 Z" fill="#2EAA86"/><path d="M120 40 L180 90 L180 104 L120 54 Z" fill="#1F7A60"/><path d="M180 90 L360 90 L360 104 L180 104 Z" fill="#268F70"/>
-                  <text x="60" y="80" fill="#fff">3F</text><text x="235" y="72" fill="#fff" font-family="Zen Kaku Gothic New" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">新町川ワークスペース</text>
-                </g>
-                <g transform="translate(0,120)">
-                  <path d="M120 40 L300 40 L360 90 L180 90 Z" fill="#F9C846"/><path d="M120 40 L180 90 L180 104 L120 54 Z" fill="#C2921E"/><path d="M180 90 L360 90 L360 104 L180 104 Z" fill="#DDAA2C"/>
-                  <text x="60" y="80" fill="#fff">2F</text><text x="235" y="72" fill="#5A3E00" font-family="Zen Kaku Gothic New" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">新町川文化ギャラリー</text>
-                </g>
-                <g transform="translate(0,240)">
-                  <path d="M120 40 L300 40 L360 90 L180 90 Z" fill="#FFF4EA"/><path d="M120 40 L180 90 L180 104 L120 54 Z" fill="#D9C4B4"/><path d="M180 90 L360 90 L360 104 L180 104 Z" fill="#EAD8CA"/>
-                  <text x="60" y="80" fill="#fff">1F</text><text x="235" y="72" fill="#B5432E" font-family="Zen Kaku Gothic New" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">POPUP STORE東船場</text>
-                </g>
-                <path d="M100 360 L120 380" stroke="#F5F3ED" stroke-width="1" opacity=".5"/>
-                <text x="200" y="392" fill="#F5F3ED" font-family="Zen Kaku Gothic New" font-size="11" text-anchor="middle" opacity=".7" letter-spacing="1">中央の階段が3つのフロアをむすぶ</text>
-              </g>
-            </svg>
+            <!-- 3層のアイソメ図（中央の階段つき） -->
+            <svg viewBox="0 0 420 400" xmlns="http://www.w3.org/2000/svg" aria-label="フロア構成（中央の階段が1階から3階をむすぶ）"><g transform="translate(0,240)"><path d="M120 40 L300 40 L360 90 L180 90 Z" fill="#FFF4EA"/><path d="M120 40 L180 90 L180 104 L120 54 Z" fill="#D9C4B4"/><path d="M180 90 L360 90 L360 104 L180 104 Z" fill="#EAD8CA"/></g><polygon points="200.0,314.0 200.0,304.0 214.0,315.7 214.0,325.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="200.0,304.0 206.9,304.0 220.9,315.7 214.0,315.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="206.9,304.0 206.9,294.0 220.9,305.7 220.9,315.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="206.9,294.0 213.8,294.0 227.8,305.7 220.9,305.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="213.8,294.0 213.8,284.0 227.8,295.7 227.8,305.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="213.8,284.0 220.7,284.0 234.7,295.7 227.8,295.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="220.7,284.0 220.7,274.0 234.7,285.7 234.7,295.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="220.7,274.0 227.6,274.0 241.6,285.7 234.7,285.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="227.6,274.0 227.6,264.0 241.6,275.7 241.6,285.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="227.6,264.0 234.5,264.0 248.5,275.7 241.6,275.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="234.5,264.0 234.5,254.0 248.5,265.7 248.5,275.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="234.5,254.0 241.4,254.0 255.4,265.7 248.5,265.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="241.4,254.0 241.4,244.0 255.4,255.7 255.4,265.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="241.4,244.0 248.3,244.0 262.3,255.7 255.4,255.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="248.3,244.0 248.3,234.0 262.3,245.7 262.3,255.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="248.3,234.0 255.2,234.0 269.2,245.7 262.3,245.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="255.2,234.0 255.2,224.0 269.2,235.7 269.2,245.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="255.2,224.0 262.1,224.0 276.1,235.7 269.2,235.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><g transform="translate(0,120)"><path d="M120 40 L300 40 L360 90 L180 90 Z" fill="#F9C846"/><path d="M120 40 L180 90 L180 104 L120 54 Z" fill="#C2921E"/><path d="M180 90 L360 90 L360 104 L180 104 Z" fill="#DDAA2C"/></g><polygon points="262,186 292,186 306,197.7 276,197.7" fill="#2A2521" opacity=".55"/><polygon points="200.0,194.0 200.0,184.0 214.0,195.7 214.0,205.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="200.0,184.0 206.9,184.0 220.9,195.7 214.0,195.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="206.9,184.0 206.9,174.0 220.9,185.7 220.9,195.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="206.9,174.0 213.8,174.0 227.8,185.7 220.9,185.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="213.8,174.0 213.8,164.0 227.8,175.7 227.8,185.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="213.8,164.0 220.7,164.0 234.7,175.7 227.8,175.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="220.7,164.0 220.7,154.0 234.7,165.7 234.7,175.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="220.7,154.0 227.6,154.0 241.6,165.7 234.7,165.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="227.6,154.0 227.6,144.0 241.6,155.7 241.6,165.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="227.6,144.0 234.5,144.0 248.5,155.7 241.6,155.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="234.5,144.0 234.5,134.0 248.5,145.7 248.5,155.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="234.5,134.0 241.4,134.0 255.4,145.7 248.5,145.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="241.4,134.0 241.4,124.0 255.4,135.7 255.4,145.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="241.4,124.0 248.3,124.0 262.3,135.7 255.4,135.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="248.3,124.0 248.3,114.0 262.3,125.7 262.3,135.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="248.3,114.0 255.2,114.0 269.2,125.7 262.3,125.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><polygon points="255.2,114.0 255.2,104.0 269.2,115.7 269.2,125.7" fill="#B9A593" stroke="#2A2521" stroke-width=".5"/><polygon points="255.2,104.0 262.1,104.0 276.1,115.7 269.2,115.7" fill="#F3E6D8" stroke="#2A2521" stroke-width=".5"/><g transform="translate(0,0)"><path d="M120 40 L300 40 L360 90 L180 90 Z" fill="#2EAA86"/><path d="M120 40 L180 90 L180 104 L120 54 Z" fill="#1F7A60"/><path d="M180 90 L360 90 L360 104 L180 104 Z" fill="#268F70"/></g><polygon points="262,66 292,66 306,77.7 276,77.7" fill="#2A2521" opacity=".55"/><text x="18" y="74" fill="#fff" font-family="Cormorant Garamond, serif" font-size="22" font-weight="600" letter-spacing="2">3F</text><text x="18" y="94" fill="#F3E6D8" font-family="Zen Kaku Gothic New, sans-serif" font-size="10.5" font-weight="700" letter-spacing=".5">新町川ワークスペース</text><text x="18" y="194" fill="#fff" font-family="Cormorant Garamond, serif" font-size="22" font-weight="600" letter-spacing="2">2F</text><text x="18" y="214" fill="#F3E6D8" font-family="Zen Kaku Gothic New, sans-serif" font-size="10.5" font-weight="700" letter-spacing=".5">新町川文化ギャラリー</text><text x="18" y="314" fill="#fff" font-family="Cormorant Garamond, serif" font-size="22" font-weight="600" letter-spacing="2">1F</text><text x="18" y="334" fill="#F3E6D8" font-family="Zen Kaku Gothic New, sans-serif" font-size="10.5" font-weight="700" letter-spacing=".5">POPUP STORE東船場</text><text x="240" y="392" fill="#F5F3ED" font-family="Zen Kaku Gothic New, sans-serif" font-size="11" text-anchor="middle" opacity=".75" letter-spacing="1">中央の階段が3つのフロアをむすぶ</text></svg>
           </div>
           <div class="card reveal">
-            <div class="row f3"><img src="img/river_view.jpg" alt="3階 新町川ワークスペース（新町川側から）" loading="lazy"><div><div class="fl en">3F</div><h3>新町川ワークスペース<small>WORKSPACE / VIRTUAL OFFICE</small></h3><p>町の未来を仕込む拠点。文化財に登記できるバーチャルオフィス、書棚、週1回の小さなイベント。</p><span class="tag">2026年 開設予定</span></div></div>
-            <div class="row f2"><img src="img/gallery_2.jpg" alt="2階 新町川文化ギャラリー" loading="lazy"><div><div class="fl en">2F</div><h3>新町川文化ギャラリー<small>GALLERY / EVENT</small></h3><p>個展・展示・小さな催し。人と町が出会うハレの場。</p><span class="tag">利用相談受付</span></div></div>
-            <div class="row f1"><img src="img/facade_entrance.jpg" alt="1階 POPUP STORE東船場" loading="lazy"><div><div class="fl en">1F</div><h3>POPUP STORE東船場<small>ONE-MONTH SHOP</small></h3><p>1ヶ月だけの店主が入れ替わる、町にひらかれた1階。アーチ窓と天井の高さが気持ちいい。売上歩合10%。</p><span class="tag">出店者募集中</span></div></div>
+            <div class="row f3"><div class="mini" aria-hidden="true"><svg viewBox="0 0 100 78" xmlns="http://www.w3.org/2000/svg"><path d="M8 38 L68 38 L92 58 L32 58 Z" fill="#2EAA86"/><path d="M8 38 L32 58 L32 66 L8 46 Z" fill="#1F7A60"/><path d="M32 58 L92 58 L92 66 L32 66 Z" fill="#268F70"/></svg></div><img src="img/river_view.jpg" alt="3階 新町川ワークスペース（新町川側から）" loading="lazy"><div><div class="fl en">3F</div><h3>新町川ワークスペース<small>WORKSPACE / VIRTUAL OFFICE</small></h3><p>町の未来を仕込む拠点。文化財に登記できるバーチャルオフィス、書棚、週1回の小さなイベント。</p><span class="tag">2026年 開設予定</span></div></div>
+            <div class="row f2"><div class="mini" aria-hidden="true"><svg viewBox="0 0 100 78" xmlns="http://www.w3.org/2000/svg"><path d="M8 38 L68 38 L92 58 L32 58 Z" fill="#F9C846"/><path d="M8 38 L32 58 L32 66 L8 46 Z" fill="#C2921E"/><path d="M32 58 L92 58 L92 66 L32 66 Z" fill="#DDAA2C"/><polygon points="40.0,46.0 40.0,39.0 48.0,43.0 48.0,50.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="40.0,39.0 44.6,39.0 52.6,43.0 48.0,43.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="44.6,39.0 44.6,32.0 52.6,36.0 52.6,43.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="44.6,32.0 49.2,32.0 57.2,36.0 52.6,36.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="49.2,32.0 49.2,25.0 57.2,29.0 57.2,36.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="49.2,25.0 53.8,25.0 61.8,29.0 57.2,29.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="53.8,25.0 53.8,18.0 61.8,22.0 61.8,29.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="53.8,18.0 58.4,18.0 66.4,22.0 61.8,22.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="58.4,18.0 58.4,11.0 66.4,15.0 66.4,22.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="58.4,11.0 63.0,11.0 71.0,15.0 66.4,15.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="63.0,11.0 63.0,4.0 71.0,8.0 71.0,15.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="63.0,4.0 67.6,4.0 75.6,8.0 71.0,8.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/></svg></div><img src="img/gallery_2.jpg" alt="2階 新町川文化ギャラリー" loading="lazy"><div><div class="fl en">2F</div><h3>新町川文化ギャラリー<small>GALLERY / EVENT</small></h3><p>個展・展示・小さな催し。人と町が出会うハレの場。</p><span class="tag">利用相談受付</span></div></div>
+            <div class="row f1"><div class="mini" aria-hidden="true"><svg viewBox="0 0 100 78" xmlns="http://www.w3.org/2000/svg"><path d="M8 38 L68 38 L92 58 L32 58 Z" fill="#FFF4EA"/><path d="M8 38 L32 58 L32 66 L8 46 Z" fill="#D9C4B4"/><path d="M32 58 L92 58 L92 66 L32 66 Z" fill="#EAD8CA"/><polygon points="40.0,46.0 40.0,39.0 48.0,43.0 48.0,50.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="40.0,39.0 44.6,39.0 52.6,43.0 48.0,43.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="44.6,39.0 44.6,32.0 52.6,36.0 52.6,43.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="44.6,32.0 49.2,32.0 57.2,36.0 52.6,36.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="49.2,32.0 49.2,25.0 57.2,29.0 57.2,36.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="49.2,25.0 53.8,25.0 61.8,29.0 57.2,29.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="53.8,25.0 53.8,18.0 61.8,22.0 61.8,29.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="53.8,18.0 58.4,18.0 66.4,22.0 61.8,22.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="58.4,18.0 58.4,11.0 66.4,15.0 66.4,22.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="58.4,11.0 63.0,11.0 71.0,15.0 66.4,15.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/><polygon points="63.0,11.0 63.0,4.0 71.0,8.0 71.0,15.0" fill="#B9A593" stroke="#2A2521" stroke-width=".4"/><polygon points="63.0,4.0 67.6,4.0 75.6,8.0 71.0,8.0" fill="#FFFFFF" stroke="#2A2521" stroke-width=".4"/></svg></div><img src="img/facade_entrance.jpg" alt="1階 POPUP STORE東船場" loading="lazy"><div><div class="fl en">1F</div><h3>POPUP STORE東船場<small>ONE-MONTH SHOP</small></h3><p>1ヶ月だけの店主が入れ替わる、町にひらかれた1階。アーチ窓と天井の高さが気持ちいい。売上歩合10%。</p><span class="tag">出店者募集中</span></div></div>
           </div>
         </div>
       </div>
@@ -635,7 +641,7 @@
             <dt>オープン</dt><dd>2026年11月1日</dd>
           </dl>
           <a href="#contact" class="btn" style="margin-top:24px">エントリーする</a>
-          <p class="note">※日程・条件は準備状況により変わることがあります。最新情報は本ページと Instagram でお知らせします。</p>
+          <p class="note">※日程・条件は準備状況により変わることがあります。最新情報は本ページと <a href="https://www.instagram.com/senba113" target="_blank" rel="noopener" style="text-decoration:underline">Instagram（@senba113）</a> でお知らせします。</p>
         </div>
       </div>
     </div>
@@ -701,7 +707,7 @@
             <h3>相談・見学・取材</h3>
             <p>「何を出せばいい？」「誰かと組みたい」もこちらへ。募集期間中は出店希望者向けの LINEオープンチャット（開設後にこのページでご案内）でも質問を受け付けます。</p>
             <!-- ↓ 株式会社国際のプロジェクト用メールアドレスに差し替え -->
-            <a href="mailto:heritage@kokusai-inc.com" class="mail">heritage@kokusai-inc.com</a>
+            <a href="mailto:senba@kokusai-inc.com" class="mail">senba@kokusai-inc.com</a>
           </div>
         </div>
       </div>
@@ -710,7 +716,7 @@
       <div class="wrap">
         <div class="f-top">
           <div>
-            <div class="f-brand">senba</div>
+            <img src="img/logo_senba_cream.png" alt="senba" style="width:120px;height:auto;display:block;margin-bottom:14px"><div class="f-brand">senba</div>
             <p>みんなで育てる文化財。<br>徳島・東船場、国の登録有形文化財「旧高原ビル（国際ビル）」で、1ヶ月だけ店主になってみる。</p>
           </div>
           <div class="f-col">
@@ -729,7 +735,7 @@
         <div class="f-bottom">
           <span>© 2026 株式会社国際 ｜ senba（旧高原ビル／国際ビル）</span>
           <!-- ↓ 公式アカウント開設後にURLを設定 -->
-          <span class="links"><span>Instagram（準備中）</span></span>
+          <span class="links"><a class="ig" href="https://www.instagram.com/senba113" target="_blank" rel="noopener" aria-label="Instagram @senba113"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg><span>@senba113</span></a></span>
         </div>
       </div>
     </footer>
